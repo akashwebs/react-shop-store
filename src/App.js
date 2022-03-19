@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AllProduct from './Components/AllProduct/AllProduct';
+import Menu from './Components/Menu/Menu';
+import { useEffect, useState } from 'react';
 
 function App() {
+ const [cartCount, setCartCount]=useState(0);
+
+ const addCartCount=()=>{
+  setCartCount(cartCount+1);
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Menu cartCount={cartCount}></Menu>
+      <AllProduct addCart={addCartCount}></AllProduct>
     </div>
   );
 }
