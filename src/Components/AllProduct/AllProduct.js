@@ -8,11 +8,10 @@ const AllProduct = ({addCart}) => {
         .then(res=>res.json())
         .then(data=>setAllProduct(data))
     },[])
-    console.log(addCart)
     return (
         <div className='row container mx-auto g-4'>
             {
-                allProduct.map(product => <SignleProduct product={product} addCart={addCart}></SignleProduct>)
+                allProduct.map(product => <SignleProduct product={product} addCart={addCart} key={product.id}></SignleProduct>)
             }
         </div>
     );
